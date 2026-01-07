@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Finance Goal Planner - Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div>
+        <h1>💰 Finance Goal Planner</h1>
+      </div>
+      <div class="user-info">
+        <span class="user-name">Welcome, <strong id="user-name">User</strong></span>
+        <button class="btn-logout" id="logout-btn">Logout</button>
+      </div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h3>Total Goals</h3>
+        <div class="stat-value" id="total-goals">0</div>
+        <div class="stat-label">Active goals</div>
+      </div>
+      <div class="stat-card">
+        <h3>Total Target</h3>
+        <div class="stat-value" id="total-target">₹0</div>
+        <div class="stat-label">Sum of all goals</div>
+      </div>
+      <div class="stat-card">
+        <h3>Total Saved</h3>
+        <div class="stat-value" id="total-saved">₹0</div>
+        <div class="stat-label">Current savings</div>
+      </div>
+      <div class="stat-card">
+        <h3>Completion</h3>
+        <div class="stat-value" id="completion-rate">0%</div>
+        <div class="stat-label">Average progress</div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Goals Section -->
+      <div class="card">
+        <h2>
+          My Goals
+          <button class="btn-add" id="add-goal-btn">+ Add Goal</button>
+        </h2>
+        <div class="goals-list" id="goals-list">
+          <div class="empty-state">
+            <p>📊 No goals yet!</p>
+            <button class="btn-add" onclick="document.getElementById('add-goal-btn').click()">Create Your First Goal</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="card">
+        <h2>Recent Activity</h2>
+        <div class="activity-list" id="activity-list">
+          <div class="empty-state">
+            <p>No activity yet</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Goal Modal -->
+  <div class="modal" id="goal-modal">
+    <div class="modal-content">
+      <h3 class="modal-header" id="modal-title">Add New Goal</h3>
+      <form id="goal-form">
+        <div class="form-group">
+          <label>Goal Name</label>
+          <input type="text" id="goal-name" placeholder="e.g., Emergency Fund" required>
+        </div>
+        <div class="form-group">
+          <label>Target Amount (₹)</label>
+          <input type="number" id="goal-target" placeholder="50000" required min="1">
+        </div>
+        <div class="form-group">
+          <label>Current Amount (₹)</label>
+          <input type="number" id="goal-current" placeholder="0" required min="0">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancel-btn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Goal</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Finance Goal Planner - Database Viewer</title>
+  <link rel="stylesheet" href="database.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>🗄️ Finance Goal Planner - Database Viewer</h1>
+      <p>View and explore the internal database structure and records</p>
+      <div class="nav-links">
+        <a href="#" class="nav-btn" onclick="alert('Go back to dashboard'); return false;">← Back to Dashboard</a>
+        <a href="#" class="nav-btn" onclick="alert('Go to login page'); return false;">Login Page</a>
+      </div>
+    </div>
+
+    <!-- Database Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h3>Total Users</h3>
+        <div class="stat-value" id="total-users">0</div>
+        <div class="stat-label">Registered accounts</div>
+      </div>
+      <div class="stat-card">
+        <h3>Total Goals</h3>
+        <div class="stat-value" id="total-goals">0</div>
+        <div class="stat-label">All user goals</div>
+      </div>
+      <div class="stat-card">
+        <h3>Total Activities</h3>
+        <div class="stat-value" id="total-activities">0</div>
+        <div class="stat-label">Logged actions</div>
+      </div>
+      <div class="stat-card">
+        <h3>Database Size</h3>
+        <div class="stat-value" id="db-size">0 KB</div>
+        <div class="stat-label">Approximate size</div>
+      </div>
+    </div>
+
+    <!-- Database Info -->
+    <div class="card">
+      <div class="db-info">
+        <h4>📊 About This Database</h4>
+        <p>This is an in-memory relational database simulation using JavaScript objects. In a production environment, this would be replaced with a real database like MySQL, PostgreSQL, or MongoDB.</p>
+        <p><strong>Database Features:</strong></p>
+        <ul>
+          <li>Three main tables: Users, Goals, Activities</li>
+          <li>Relational structure with foreign keys (userId)</li>
+          <li>Auto-incrementing primary keys (id)</li>
+          <li>Timestamp tracking (ISO 8601 format)</li>
+          <li>CRUD operations (Create, Read, Update, Delete)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Table Viewer -->
+    <div class="card">
+      <h2>📋 Table Data</h2>
+      
+      <div class="db-controls">
+        <button class="btn-db active" data-table="users" onclick="showTable('users')">👥 Users Table</button>
+        <button class="btn-db" data-table="goals" onclick="showTable('goals')">🎯 Goals Table</button>
+        <button class="btn-db" data-table="activities" onclick="showTable('activities')">📝 Activities Table</button>
+        <button class="btn-db btn-refresh" onclick="refreshData()">🔄 Refresh Data</button>
+        <button class="btn-db btn-export" onclick="exportDB()">📥 Export Database</button>
+      </div>
+
+      <div class="sql-query" id="sql-query">SELECT * FROM users;</div>
+
+      <div class="table-wrapper">
+        <table class="db-table" id="data-table">
+          <thead id="table-head"></thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+
+      <div class="table-stats" id="table-stats"></div>
+    </div>
+  </div>
+
+  <script src="database.js"></script>
+</body>
+</html>
