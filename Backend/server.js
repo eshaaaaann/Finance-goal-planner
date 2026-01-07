@@ -6,7 +6,7 @@ const path = require('path');
 const bcrypt = require('bcryptjs');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const DB_FILE = path.join(__dirname, 'database.json');
 
 // Middleware
@@ -44,6 +44,36 @@ async function writeDB(data) {
 function generateId(array) {
   return array.length > 0 ? Math.max(...array.map(item => item.id)) + 1 : 1;
 }
+
+// ==================== ROOT ROUTE ====================
+
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Finance Goal Planner API is running! 🚀',
+    version: '1.0.0',
+    status: 'OK',
+    endpoints: {
+      auth: {
+        register: 'POST /api/auth/register',
+        login: 'POST /api/auth/login'
+      },
+      goals: {
+        getUserGoals: 'GET /api/goals/:userId',
+        createGoal: 'POST /api/goals',
+        updateGoal: 'PUT /api/goals/:id',
+        addMoney: 'POST /api/goals/:id/add-money',
+        deleteGoal: 'DELETE /api/goals/:id'
+      },
+      activities: {
+        getUserActivities: 'GET /api/activities/:userId'
+      },
+      database: {
+        getDatabase: 'GET /api/database',
+        getStats: 'GET /api/database/stats'
+      }
+    }
+  });
+});
 
 // ==================== AUTH ROUTES ====================
 
@@ -362,6 +392,7 @@ async function startServer() {
 ╚════════════════════════════════════════╝
     `);
     console.log('📚 Available endpoints:');
+    console.log('   GET    /');
     console.log('   POST   /api/auth/register');
     console.log('   POST   /api/auth/login');
     console.log('   GET    /api/goals/:userId');
