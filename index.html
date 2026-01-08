@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personal Finance Goal Planner - Login / Register</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="auth-container">
+    <div class="card" id="main-card">
+      <header>
+        <h1>Finance Goal Planner</h1>
+        <p class="muted">Login or create an account to track your goals</p>
+      </header>
+
+      <div class="tabs">
+        <button id="tab-login" class="tab active">Login</button>
+        <button id="tab-register" class="tab">Register</button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <form id="login-form" class="form active" autocomplete="on">
+        <label>
+          Email
+          <input type="email" id="login-email" required placeholder="you@example.com">
+        </label>
+
+        <label class="password-row">
+          Password
+          <div class="pw-wrap">
+            <input type="password" id="login-password" required placeholder="Enter password">
+            <button type="button" class="show-btn" data-target="login-password">Show</button>
+          </div>
+        </label>
+
+        <label class="checkbox">
+          <input type="checkbox" id="remember-me"> Remember me
+        </label>
+
+        <div class="actions">
+          <button type="submit" class="btn primary">Login</button>
+          <button type="button" id="to-register" class="btn link">Create account</button>
+        </div>
+
+        <p id="login-message" class="message"></p>
+      </form>
+
+      <!-- REGISTER FORM -->
+      <form id="register-form" class="form" autocomplete="on">
+        <label>
+          Full name
+          <input type="text" id="reg-name" required placeholder="Your name">
+        </label>
+
+        <label>
+          Email
+          <input type="email" id="reg-email" required placeholder="you@example.com">
+        </label>
+
+        <label class="password-row">
+          Password
+          <div class="pw-wrap">
+            <input type="password" id="reg-password" required placeholder="Min 6 characters">
+            <button type="button" class="show-btn" data-target="reg-password">Show</button>
+          </div>
+        </label>
+
+        <label>
+          Confirm password
+          <input type="password" id="reg-password-confirm" required placeholder="Repeat password">
+        </label>
+
+        <div class="pw-strength" id="pw-strength">Strength: <span>-</span></div>
+
+        <div class="actions">
+          <button type="submit" class="btn primary">Register</button>
+          <button type="button" id="to-login" class="btn link">Have an account? Login</button>
+        </div>
+
+        <p id="register-message" class="message"></p>
+      </form>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
