@@ -8,7 +8,7 @@
 </head>
 <body>
   <main class="auth-container">
-    <div class="card" id="main-card">
+    <div class="card">
       <header>
         <h1>Finance Goal Planner</h1>
         <p class="muted">Login or create an account to track your goals</p>
@@ -30,7 +30,7 @@
           Password
           <div class="pw-wrap">
             <input type="password" id="login-password" required placeholder="Enter password">
-            <button type="button" class="show-btn" data-target="login-password">Show</button>
+            <button type="button" class="show-btn" data-target="login-password" aria-label="Show password">Show</button>
           </div>
         </label>
 
@@ -62,7 +62,7 @@
           Password
           <div class="pw-wrap">
             <input type="password" id="reg-password" required placeholder="Min 6 characters">
-            <button type="button" class="show-btn" data-target="reg-password">Show</button>
+            <button type="button" class="show-btn" data-target="reg-password" aria-label="Show password">Show</button>
           </div>
         </label>
 
@@ -71,7 +71,7 @@
           <input type="password" id="reg-password-confirm" required placeholder="Repeat password">
         </label>
 
-        <div class="pw-strength" id="pw-strength">Strength: <span>-</span></div>
+        <div class="pw-strength" id="pw-strength">Strength: <span>—</span></div>
 
         <div class="actions">
           <button type="submit" class="btn primary">Register</button>
