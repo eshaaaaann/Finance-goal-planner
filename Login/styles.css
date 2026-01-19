@@ -9,14 +9,12 @@ body {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
   padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .auth-container {
   max-width: 420px;
   width: 100%;
+  margin: 50px auto;
 }
 
 .card {
@@ -27,15 +25,15 @@ body {
 }
 
 header h1 {
+  margin: 0;
   font-size: 24px;
   color: #333;
-  margin-bottom: 5px;
 }
 
 .muted {
   color: #666;
+  margin: 6px 0 20px;
   font-size: 14px;
-  margin-bottom: 25px;
 }
 
 .tabs {
@@ -66,10 +64,12 @@ header h1 {
 
 .form {
   display: none;
+  gap: 14px;
+  flex-direction: column;
 }
 
 .form.active {
-  display: block;
+  display: flex;
 }
 
 label {
@@ -101,6 +101,11 @@ input:focus {
   display: flex;
   gap: 8px;
   margin-top: 6px;
+}
+
+.pw-wrap {
+  position: relative;
+  flex: 1;
 }
 
 .pw-wrap input {
@@ -135,7 +140,10 @@ input:focus {
 }
 
 .actions {
-  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .btn {
@@ -214,12 +222,8 @@ input:focus {
   font-weight: 600;
 }
 
-.welcome-screen {
-  text-align: center;
-  padding: 20px;
-}
-
-.welcome-screen h2 {
-  color: #333;
-  margin-bottom: 10px;
+@media (max-width:480px) {
+  .card {
+    padding: 20px;
+  }
 }
